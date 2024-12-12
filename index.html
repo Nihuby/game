@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monty Hall Game</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <h1>Monty Hall Game</h1>
+    <p id="message">Choose a door to start!</p>
+
+    <div class="doors">
+        <div class="door-container">
+            <img id="door1" class="door" src="static/door_closed.jpg" onclick="chooseDoor(1)" alt="Door 1">
+            <div id="content1" class="content hidden">
+                <img id="result1" class="result" src="" alt="Result">
+            </div>
+        </div>
+        <div class="door-container">
+            <img id="door2" class="door" src="static/door_closed.jpg" onclick="chooseDoor(2)" alt="Door 2">
+            <div id="content2" class="content hidden">
+                <img id="result2" class="result" src="" alt="Result">
+            </div>
+        </div>
+        <div class="door-container">
+            <img id="door3" class="door" src="static/door_closed.jpg" onclick="chooseDoor(3)" alt="Door 3">
+            <div id="content3" class="content hidden">
+                <img id="result3" class="result" src="" alt="Result">
+            </div>
+        </div>
+    </div>
+
+    <div id="controls" class="hidden">
+        <button onclick="makeFinalChoice(false)">Stay</button>
+        <button onclick="makeFinalChoice(true)">Switch</button>
+    </div>
+
+    <div id="result-area" class="hidden">
+        <p id="result-message"></p>
+        <button onclick="restartGame()">Play Again</button>
+    </div>
+
+    <div id="stats">
+        <h2>Game Statistics</h2>
+        <p>Total Games: <span id="total-games">0</span></p>
+        <p>Wins: <span id="wins">0</span></p>
+        <p>Losses: <span id="losses">0</span></p>
+        <p>Winning Probability: <span id="win-percentage">0%</span></p>
+    </div>
+
+    <div id="simulation">
+        <h2>Run Simulation</h2>
+        <label for="simulation-count">Number of Simulations:</label>
+        <input type="number" id="simulation-count" min="1" max="10000" value="1000">
+        <button onclick="runSimulation()">Run</button>
+        <div id="simulation-results" class="hidden">
+            <p>Switch Wins: <span id="switch-wins">0</span></p>
+            <p>Stay Wins: <span id="stay-wins">0</span></p>
+            <p>Switch Winning Percentage: <span id="switch-win-percentage">0%</span></p>
+            <p>Stay Winning Percentage: <span id="stay-win-percentage">0%</span></p>
+        </div>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
